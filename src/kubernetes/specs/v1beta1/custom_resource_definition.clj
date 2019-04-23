@@ -13,7 +13,7 @@
    (ds/opt :apiVersion) string?
    (ds/opt :kind) string?
    (ds/opt :metadata) v1/object-meta-spec
-   (ds/opt :spec) v1beta1/custom-resource-definition-spec-spec
+   (ds/req :spec) v1beta1/custom-resource-definition-spec-spec
    (ds/opt :status) v1beta1/custom-resource-definition-status-spec
    })
 

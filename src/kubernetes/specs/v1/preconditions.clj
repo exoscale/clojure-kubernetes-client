@@ -7,6 +7,7 @@
 
 (def v1/preconditions-data
   {
+   (ds/opt :resourceVersion) string?
    (ds/opt :uid) string?
    })
 

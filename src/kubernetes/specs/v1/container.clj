@@ -9,6 +9,7 @@
             [kubernetes.specs.v1/probe :refer :all]
             [kubernetes.specs.v1/resource-requirements :refer :all]
             [kubernetes.specs.v1/security-context :refer :all]
+            [kubernetes.specs.v1/volume-device :refer :all]
             [kubernetes.specs.v1/volume-mount :refer :all]
             )
   (:import (java.io File)))
@@ -34,6 +35,7 @@
    (ds/opt :terminationMessagePath) string?
    (ds/opt :terminationMessagePolicy) string?
    (ds/opt :tty) boolean?
+   (ds/opt :volumeDevices) (s/coll-of v1/volume-device-spec)
    (ds/opt :volumeMounts) (s/coll-of v1/volume-mount-spec)
    (ds/opt :workingDir) string?
    })

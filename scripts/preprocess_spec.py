@@ -335,7 +335,7 @@ def main():
                                                      args.repository,
                                                      args.kubernetes_branch)
 
-    pool = urllib3.PoolManager()
+    pool = urllib3.PoolManager(cert_reqs='CERT_NONE', assert_hostname=False)
     with pool.request('GET', spec_url, preload_content=False) as response:
         if response.status != 200:
             print("Error downloading spec file %s. Reason: %s" % (spec_url, response.reason))

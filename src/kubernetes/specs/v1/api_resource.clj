@@ -14,6 +14,7 @@
    (ds/req :namespaced) boolean?
    (ds/opt :shortNames) (s/coll-of string?)
    (ds/req :singularName) string?
+   (ds/opt :storageVersionHash) string?
    (ds/req :verbs) (s/coll-of string?)
    (ds/opt :version) string?
    })

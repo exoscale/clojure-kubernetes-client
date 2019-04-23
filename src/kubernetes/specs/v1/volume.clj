@@ -7,6 +7,7 @@
             [kubernetes.specs.v1/ceph-fs-volume-source :refer :all]
             [kubernetes.specs.v1/cinder-volume-source :refer :all]
             [kubernetes.specs.v1/config-map-volume-source :refer :all]
+            [kubernetes.specs.v1/csi-volume-source :refer :all]
             [kubernetes.specs.v1/downward-api-volume-source :refer :all]
             [kubernetes.specs.v1/empty-dir-volume-source :refer :all]
             [kubernetes.specs.v1/fc-volume-source :refer :all]
@@ -40,6 +41,7 @@
    (ds/opt :cephfs) v1/ceph-fs-volume-source-spec
    (ds/opt :cinder) v1/cinder-volume-source-spec
    (ds/opt :configMap) v1/config-map-volume-source-spec
+   (ds/opt :csi) v1/csi-volume-source-spec
    (ds/opt :downwardAPI) v1/downward-api-volume-source-spec
    (ds/opt :emptyDir) v1/empty-dir-volume-source-spec
    (ds/opt :fc) v1/fc-volume-source-spec

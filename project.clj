@@ -1,4 +1,4 @@
-(defproject kubernetes "v1.8.16"
+(defproject kubernetes "v1.14.1"
   :description "Client library of kubernetes"
   :dependencies [[org.clojure/clojure "1.9.0"]
                  [metosin/spec-tools "0.7.0"]

@@ -3,6 +3,7 @@
             [spec-tools.data-spec :as ds]
             [kubernetes.specs.v1/node-address :refer :all]
             [kubernetes.specs.v1/node-condition :refer :all]
+            [kubernetes.specs.v1/node-config-status :refer :all]
             [kubernetes.specs.v1/node-daemon-endpoints :refer :all]
             [kubernetes.specs.v1/container-image :refer :all]
             [kubernetes.specs.v1/node-system-info :refer :all]
@@ -17,6 +18,7 @@
    (ds/opt :allocatable) (s/map-of string? string?)
    (ds/opt :capacity) (s/map-of string? string?)
    (ds/opt :conditions) (s/coll-of v1/node-condition-spec)
+   (ds/opt :config) v1/node-config-status-spec
    (ds/opt :daemonEndpoints) v1/node-daemon-endpoints-spec
    (ds/opt :images) (s/coll-of v1/container-image-spec)
    (ds/opt :nodeInfo) v1/node-system-info-spec

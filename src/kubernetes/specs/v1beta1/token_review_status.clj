@@ -8,6 +8,7 @@
 
 (def v1beta1/token-review-status-data
   {
+   (ds/opt :audiences) (s/coll-of string?)
    (ds/opt :authenticated) boolean?
    (ds/opt :error) string?
    (ds/opt :user) v1beta1/user-info-spec

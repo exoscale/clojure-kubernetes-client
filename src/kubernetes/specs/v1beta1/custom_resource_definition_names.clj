@@ -7,6 +7,7 @@
 
 (def v1beta1/custom-resource-definition-names-data
   {
+   (ds/opt :categories) (s/coll-of string?)
    (ds/req :kind) string?
    (ds/opt :listKind) string?
    (ds/req :plural) string?

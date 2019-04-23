@@ -9,6 +9,7 @@
 (def v1/delete-options-data
   {
    (ds/opt :apiVersion) string?
+   (ds/opt :dryRun) (s/coll-of string?)
    (ds/opt :gracePeriodSeconds) int?
    (ds/opt :kind) string?
    (ds/opt :orphanDependents) boolean?

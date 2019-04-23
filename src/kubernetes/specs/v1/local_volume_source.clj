@@ -7,6 +7,7 @@
 
 (def v1/local-volume-source-data
   {
+   (ds/opt :fsType) string?
    (ds/req :path) string?
    })
 

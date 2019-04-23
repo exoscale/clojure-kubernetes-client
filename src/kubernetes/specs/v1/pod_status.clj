@@ -15,6 +15,7 @@
    (ds/opt :hostIP) string?
    (ds/opt :initContainerStatuses) (s/coll-of v1/container-status-spec)
    (ds/opt :message) string?
+   (ds/opt :nominatedNodeName) string?
    (ds/opt :phase) string?
    (ds/opt :podIP) string?
    (ds/opt :qosClass) string?

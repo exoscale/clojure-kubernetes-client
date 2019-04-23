@@ -3,9 +3,11 @@
             [spec-tools.data-spec :as ds]
             [kubernetes.specs.v1/affinity :refer :all]
             [kubernetes.specs.v1/container :refer :all]
+            [kubernetes.specs.v1/pod-dns-config :refer :all]
             [kubernetes.specs.v1/host-alias :refer :all]
             [kubernetes.specs.v1/local-object-reference :refer :all]
             [kubernetes.specs.v1/container :refer :all]
+            [kubernetes.specs.v1/pod-readiness-gate :refer :all]
             [kubernetes.specs.v1/pod-security-context :refer :all]
             [kubernetes.specs.v1/toleration :refer :all]
             [kubernetes.specs.v1/volume :refer :all]
@@ -19,7 +21,9 @@
    (ds/opt :affinity) v1/affinity-spec
    (ds/opt :automountServiceAccountToken) boolean?
    (ds/req :containers) (s/coll-of v1/container-spec)
+   (ds/opt :dnsConfig) v1/pod-dns-config-spec
    (ds/opt :dnsPolicy) string?
+   (ds/opt :enableServiceLinks) boolean?
    (ds/opt :hostAliases) (s/coll-of v1/host-alias-spec)
    (ds/opt :hostIPC) boolean?
    (ds/opt :hostNetwork) boolean?
@@ -31,11 +35,14 @@
    (ds/opt :nodeSelector) (s/map-of string? string?)
    (ds/opt :priority) int?
    (ds/opt :priorityClassName) string?
+   (ds/opt :readinessGates) (s/coll-of v1/pod-readiness-gate-spec)
    (ds/opt :restartPolicy) string?
+   (ds/opt :runtimeClassName) string?
    (ds/opt :schedulerName) string?
    (ds/opt :securityContext) v1/pod-security-context-spec
    (ds/opt :serviceAccount) string?
    (ds/opt :serviceAccountName) string?
+   (ds/opt :shareProcessNamespace) boolean?
    (ds/opt :subdomain) string?
    (ds/opt :terminationGracePeriodSeconds) int?
    (ds/opt :tolerations) (s/coll-of v1/toleration-spec)

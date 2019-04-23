@@ -12,7 +12,9 @@
    (ds/opt :allowPrivilegeEscalation) boolean?
    (ds/opt :capabilities) v1/capabilities-spec
    (ds/opt :privileged) boolean?
+   (ds/opt :procMount) string?
    (ds/opt :readOnlyRootFilesystem) boolean?
+   (ds/opt :runAsGroup) int?
    (ds/opt :runAsNonRoot) boolean?
    (ds/opt :runAsUser) int?
    (ds/opt :seLinuxOptions) v1/se-linux-options-spec

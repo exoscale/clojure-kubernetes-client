@@ -1,16 +1,14 @@
 (ns kubernetes.specs.v1/node-config-source
   (:require [clojure.spec.alpha :as s]
             [spec-tools.data-spec :as ds]
-            [kubernetes.specs.v1/object-reference :refer :all]
+            [kubernetes.specs.v1/config-map-node-config-source :refer :all]
             )
   (:import (java.io File)))
 
 
 (def v1/node-config-source-data
   {
-   (ds/opt :apiVersion) string?
-   (ds/opt :configMapRef) v1/object-reference-spec
-   (ds/opt :kind) string?
+   (ds/opt :configMap) v1/config-map-node-config-source-spec
    })
 
 (def v1/node-config-source-spec

@@ -10,7 +10,7 @@
   {
    (ds/opt :labelSelector) v1/label-selector-spec
    (ds/opt :namespaces) (s/coll-of string?)
-   (ds/opt :topologyKey) string?
+   (ds/req :topologyKey) string?
    })
 
 (def v1/pod-affinity-term-spec

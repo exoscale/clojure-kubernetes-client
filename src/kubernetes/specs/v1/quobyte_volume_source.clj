@@ -10,6 +10,7 @@
    (ds/opt :group) string?
    (ds/opt :readOnly) boolean?
    (ds/req :registry) string?
+   (ds/opt :tenant) string?
    (ds/opt :user) string?
    (ds/req :volume) string?
    })

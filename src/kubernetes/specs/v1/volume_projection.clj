@@ -4,6 +4,7 @@
             [kubernetes.specs.v1/config-map-projection :refer :all]
             [kubernetes.specs.v1/downward-api-projection :refer :all]
             [kubernetes.specs.v1/secret-projection :refer :all]
+            [kubernetes.specs.v1/service-account-token-projection :refer :all]
             )
   (:import (java.io File)))
 
@@ -13,6 +14,7 @@
    (ds/opt :configMap) v1/config-map-projection-spec
    (ds/opt :downwardAPI) v1/downward-api-projection-spec
    (ds/opt :secret) v1/secret-projection-spec
+   (ds/opt :serviceAccountToken) v1/service-account-token-projection-spec
    })
 
 (def v1/volume-projection-spec

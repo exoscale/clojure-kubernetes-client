@@ -9,7 +9,7 @@
   {
    (ds/req :currentHealthy) int?
    (ds/req :desiredHealthy) int?
-   (ds/req :disruptedPods) (s/map-of string? inst?)
+   (ds/opt :disruptedPods) (s/map-of string? inst?)
    (ds/req :disruptionsAllowed) int?
    (ds/req :expectedPods) int?
    (ds/opt :observedGeneration) int?

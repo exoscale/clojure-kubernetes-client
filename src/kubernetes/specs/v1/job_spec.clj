@@ -16,6 +16,7 @@
    (ds/opt :parallelism) int?
    (ds/opt :selector) v1/label-selector-spec
    (ds/req :template) v1/pod-template-spec-spec
+   (ds/opt :ttlSecondsAfterFinished) int?
    })
 
 (def v1/job-spec-spec

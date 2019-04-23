@@ -12,7 +12,7 @@
    (ds/opt :apiVersion) string?
    (ds/opt :kind) string?
    (ds/opt :metadata) v1/object-meta-spec
-   (ds/req :subsets) (s/coll-of v1/endpoint-subset-spec)
+   (ds/opt :subsets) (s/coll-of v1/endpoint-subset-spec)
    })
 
 (def v1/endpoints-spec

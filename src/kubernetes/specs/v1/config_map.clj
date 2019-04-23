@@ -9,6 +9,7 @@
 (def v1/config-map-data
   {
    (ds/opt :apiVersion) string?
+   (ds/opt :binaryData) (s/map-of string? any?)
    (ds/opt :data) (s/map-of string? string?)
    (ds/opt :kind) string?
    (ds/opt :metadata) v1/object-meta-spec

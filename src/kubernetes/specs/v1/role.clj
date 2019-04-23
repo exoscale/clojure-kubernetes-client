@@ -12,7 +12,7 @@
    (ds/opt :apiVersion) string?
    (ds/opt :kind) string?
    (ds/opt :metadata) v1/object-meta-spec
-   (ds/req :rules) (s/coll-of v1/policy-rule-spec)
+   (ds/opt :rules) (s/coll-of v1/policy-rule-spec)
    })
 
 (def v1/role-spec

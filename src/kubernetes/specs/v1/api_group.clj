@@ -14,7 +14,7 @@
    (ds/opt :kind) string?
    (ds/req :name) string?
    (ds/opt :preferredVersion) v1/group-version-for-discovery-spec
-   (ds/req :serverAddressByClientCIDRs) (s/coll-of v1/server-address-by-client-cidr-spec)
+   (ds/opt :serverAddressByClientCIDRs) (s/coll-of v1/server-address-by-client-cidr-spec)
    (ds/req :versions) (s/coll-of v1/group-version-for-discovery-spec)
    })
 

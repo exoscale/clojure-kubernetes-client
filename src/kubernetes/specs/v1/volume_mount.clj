@@ -12,6 +12,7 @@
    (ds/req :name) string?
    (ds/opt :readOnly) boolean?
    (ds/opt :subPath) string?
+   (ds/opt :subPathExpr) string?
    })
 
 (def v1/volume-mount-spec

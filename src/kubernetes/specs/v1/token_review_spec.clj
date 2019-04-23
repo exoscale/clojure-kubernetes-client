@@ -7,6 +7,7 @@
 
 (def v1/token-review-spec-data
   {
+   (ds/opt :audiences) (s/coll-of string?)
    (ds/opt :token) string?
    })
 

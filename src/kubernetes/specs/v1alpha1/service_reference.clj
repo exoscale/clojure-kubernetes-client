@@ -9,6 +9,7 @@
   {
    (ds/req :name) string?
    (ds/req :namespace) string?
+   (ds/opt :path) string?
    })
 
 (def v1alpha1/service-reference-spec

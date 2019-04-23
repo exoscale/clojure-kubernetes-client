@@ -2,6 +2,7 @@
   (:require [clojure.spec.alpha :as s]
             [spec-tools.data-spec :as ds]
             [kubernetes.specs.v1/initializers :refer :all]
+            [kubernetes.specs.v1/managed-fields-entry :refer :all]
             [kubernetes.specs.v1/owner-reference :refer :all]
             )
   (:import (java.io File)))
@@ -19,6 +20,7 @@
    (ds/opt :generation) int?
    (ds/opt :initializers) v1/initializers-spec
    (ds/opt :labels) (s/map-of string? string?)
+   (ds/opt :managedFields) (s/coll-of v1/managed-fields-entry-spec)
    (ds/opt :name) string?
    (ds/opt :namespace) string?
    (ds/opt :ownerReferences) (s/coll-of v1/owner-reference-spec)

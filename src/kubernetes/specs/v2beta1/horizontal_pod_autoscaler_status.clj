@@ -10,7 +10,7 @@
 (def v2beta1/horizontal-pod-autoscaler-status-data
   {
    (ds/req :conditions) (s/coll-of v2beta1/horizontal-pod-autoscaler-condition-spec)
-   (ds/req :currentMetrics) (s/coll-of v2beta1/metric-status-spec)
+   (ds/opt :currentMetrics) (s/coll-of v2beta1/metric-status-spec)
    (ds/req :currentReplicas) int?
    (ds/req :desiredReplicas) int?
    (ds/opt :lastScaleTime) inst?

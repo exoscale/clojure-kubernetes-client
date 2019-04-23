@@ -1,6 +1,7 @@
 (ns kubernetes.specs.v1beta2/daemon-set-status
   (:require [clojure.spec.alpha :as s]
             [spec-tools.data-spec :as ds]
+            [kubernetes.specs.v1beta2/daemon-set-condition :refer :all]
             )
   (:import (java.io File)))
 
@@ -8,6 +9,7 @@
 (def v1beta2/daemon-set-status-data
   {
    (ds/opt :collisionCount) int?
+   (ds/opt :conditions) (s/coll-of v1beta2/daemon-set-condition-spec)
    (ds/req :currentNumberScheduled) int?
    (ds/req :desiredNumberScheduled) int?
    (ds/opt :numberAvailable) int?

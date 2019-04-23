@@ -11,6 +11,7 @@
   {
    (ds/req :acceptedNames) v1beta1/custom-resource-definition-names-spec
    (ds/req :conditions) (s/coll-of v1beta1/custom-resource-definition-condition-spec)
+   (ds/req :storedVersions) (s/coll-of string?)
    })
 
 (def v1beta1/custom-resource-definition-status-spec

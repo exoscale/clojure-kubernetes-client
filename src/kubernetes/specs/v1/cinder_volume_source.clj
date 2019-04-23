@@ -1,6 +1,7 @@
 (ns kubernetes.specs.v1/cinder-volume-source
   (:require [clojure.spec.alpha :as s]
             [spec-tools.data-spec :as ds]
+            [kubernetes.specs.v1/local-object-reference :refer :all]
             )
   (:import (java.io File)))
 
@@ -9,6 +10,7 @@
   {
    (ds/opt :fsType) string?
    (ds/opt :readOnly) boolean?
+   (ds/opt :secretRef) v1/local-object-reference-spec
    (ds/req :volumeID) string?
    })
 
