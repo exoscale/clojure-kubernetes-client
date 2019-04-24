@@ -22,7 +22,7 @@
                             <output>${generator.output.path}</output>
                             <validateSpec>false</validateSpec>
                             <configOptions>
-                                <packageName>${generator.package.name}</packageName>
+                                <projectName>clojure-kubernetes-client</projectName>
                                 <packageVersion>${generator.client.version}</packageVersion>
                             </configOptions>
                         </configuration>
