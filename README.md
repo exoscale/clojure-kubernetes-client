@@ -1,6 +1,9 @@
 # clojure-kubernetes-client
 Clojure client for Kubernetes API
 
+[![Build Status](https://travis-ci.com/exoscale/clojure-kubernetes-client.svg?token=Km7sM6KysgVvrw99sqov&branch=master)](https://travis-ci.com/exoscale/clojure-kubernetes-client)
+[![Clojars Project](https://img.shields.io/clojars/v/exoscale/clojure-kubernetes-client.svg)](https://clojars.org/exoscale/clojure-kubernetes-client)
+
 ## Usage
 ### Example
 Start kubernetes proxy on `localhost:8080`
