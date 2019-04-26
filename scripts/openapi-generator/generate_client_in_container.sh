@@ -91,9 +91,9 @@ echo "--- Generating client ..."
 mvn -f "${SCRIPT_ROOT}/generation_params.xml" clean generate-sources \
     -Dgenerator.spec.path="${output_dir}/swagger.json" \
     -Dgenerator.output.path="${output_dir}" \
-    -D=generator.client.version="${CLIENT_VERSION}" \
-    -D=generator.package.name="${PACKAGE_NAME}" \
-    -D=openapi-generator-version="${PLUGIN_VERSION}" \
+    -Dgenerator.client.version="${CLIENT_VERSION}" \
+    -Dgenerator.package.name="${PACKAGE_NAME}" \
+    -Dopenapi-generator-version="${PLUGIN_VERSION}" \
     -Duser.home=/root
 
 mkdir -p "${output_dir}/.openapi-generator"

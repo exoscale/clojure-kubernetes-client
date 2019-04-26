@@ -22,8 +22,9 @@
                             <output>${generator.output.path}</output>
                             <validateSpec>false</validateSpec>
                             <configOptions>
-                                <projectName>clojure-kubernetes-client</projectName>
-                                <packageVersion>${generator.client.version}</packageVersion>
+                                <projectName>exoscale/${generator.package.name}</projectName>
+                                <baseNamespace>${generator.package.name}</baseNamespace>
+                                <projectVersion>${generator.client.version}</projectVersion>
                             </configOptions>
                         </configuration>
                     </execution>

@@ -36,10 +36,10 @@ source "${SETTING_FILE}"
 # Latest version as of Mar 15, 2019
 #OPENAPI_GENERATOR_COMMIT="${OPENAPI_GENERATOR_COMMIT:-c9737cf97d5e31936639842d389118e980ee85a9}"; \
 # Dajac's version
-OPENAPI_GENERATOR_USER_ORG=swarali; \
-OPENAPI_GENERATOR_COMMIT="${OPENAPI_GENERATOR_COMMIT:-2968682b224d61b1f5f15d2524efc29b60baf355}"; \
+OPENAPI_GENERATOR_USER_ORG=exoscale; \
+OPENAPI_GENERATOR_COMMIT="${OPENAPI_GENERATOR_COMMIT:-352f19f134819ad203ed9b3eeb65fea1715275a6}"; \
 CLIENT_LANGUAGE=clojure; \
-CLEANUP_DIRS=(src/kubernetes); \
+CLEANUP_DIRS=(src/clojure_kubernetes_client project.clj git_push.sh .gitignore); \
 
 kubeclient::generator::generate_client "${CLIENT_ROOT}"
 
