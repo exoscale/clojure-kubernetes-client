@@ -1,0 +1,10 @@
+sudo: false
+language: clojure
+lein: lein
+jdk:
+  - openjdk8
+  - oraclejdk8
+  - oraclejdk11
+branches:
+  except:
+    - gh-pages
