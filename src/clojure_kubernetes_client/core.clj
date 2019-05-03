@@ -17,7 +17,8 @@
    :datetime-format "yyyy-MM-dd'T'HH:mm:ss.SSSXXX"
    :decode-models   false
    :debug           false
-   :auths           {"BearerToken" nil}})
+   :auths           {"BearerToken" nil}
+   :http-opts       {}})
 
 (def ^:dynamic *api-context*
   "Dynamic API context to be applied in API calls."
@@ -227,7 +228,7 @@
 (defn call-api
   "Call an API by making HTTP request and return its response."
   [path method {:keys [path-params body-param content-types accepts auth-names] :as opts}]
-  (let [{:keys [debug]} *api-context*
+  (let [{:keys [debug http-opts]} *api-context*
         {:keys [req-opts query-params header-params form-params]} (auths->opts auth-names)
         query-params (merge query-params (:query-params opts))
         header-params (merge header-params (:header-params opts))
@@ -237,6 +238,7 @@
         accept (or (json-preferred-mime accepts) :json)
         multipart? (= "multipart/form-data" content-type)
         req-opts (cond-> req-opts
+                   true (merge http-opts)
                    true (assoc :url url :method method)
                    accept (assoc :accept accept)
                    (seq query-params) (assoc :query-params (normalize-params query-params))

@@ -1,4 +1,4 @@
-(defproject exoscale/clojure-kubernetes-client "0.1.0"
+(defproject exoscale/clojure-kubernetes-client "0.1.1"
   :description "Client library of exoscale/clojure-kubernetes-client"
   :dependencies [[org.clojure/clojure "1.9.0"]
                  [metosin/spec-tools "0.7.0"]
