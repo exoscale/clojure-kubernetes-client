@@ -10,6 +10,7 @@
   {
    (ds/opt :name) string?
    (ds/opt :namespace) string?
+   (ds/opt :port) int?
    })
 
 (def apiregistration-v1beta1-service-reference

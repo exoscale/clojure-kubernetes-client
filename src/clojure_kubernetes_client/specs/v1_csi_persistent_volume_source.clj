@@ -4,6 +4,7 @@
             [clojure-kubernetes-client.specs.v1-secret-reference :refer :all]
             [clojure-kubernetes-client.specs.v1-secret-reference :refer :all]
             [clojure-kubernetes-client.specs.v1-secret-reference :refer :all]
+            [clojure-kubernetes-client.specs.v1-secret-reference :refer :all]
             )
   (:import (java.io File)))
 
@@ -11,6 +12,7 @@
 (declare v1-csi-persistent-volume-source-data v1-csi-persistent-volume-source)
 (def v1-csi-persistent-volume-source-data
   {
+   (ds/opt :controllerExpandSecretRef) v1-secret-reference
    (ds/opt :controllerPublishSecretRef) v1-secret-reference
    (ds/req :driver) string?
    (ds/opt :fsType) string?

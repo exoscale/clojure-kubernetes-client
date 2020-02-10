@@ -3,7 +3,7 @@
             [spec-tools.data-spec :as ds]
             [clojure-kubernetes-client.specs.v1-object-meta :refer :all]
             [clojure-kubernetes-client.specs.v1alpha1-role-ref :refer :all]
-            [clojure-kubernetes-client.specs.v1alpha1-subject :refer :all]
+            [clojure-kubernetes-client.specs.rbac-v1alpha1-subject :refer :all]
             )
   (:import (java.io File)))
 
@@ -15,7 +15,7 @@
    (ds/opt :kind) string?
    (ds/opt :metadata) v1-object-meta
    (ds/req :roleRef) v1alpha1-role-ref
-   (ds/opt :subjects) (s/coll-of v1alpha1-subject)
+   (ds/opt :subjects) (s/coll-of rbac-v1alpha1-subject)
    })
 
 (def v1alpha1-role-binding

@@ -1,12 +1,12 @@
-(ns clojure-kubernetes-client.specs.v1alpha1-subject
+(ns clojure-kubernetes-client.specs.rbac-v1alpha1-subject
   (:require [clojure.spec.alpha :as s]
             [spec-tools.data-spec :as ds]
             )
   (:import (java.io File)))
 
 
-(declare v1alpha1-subject-data v1alpha1-subject)
-(def v1alpha1-subject-data
+(declare rbac-v1alpha1-subject-data rbac-v1alpha1-subject)
+(def rbac-v1alpha1-subject-data
   {
    (ds/opt :apiVersion) string?
    (ds/req :kind) string?
@@ -14,8 +14,8 @@
    (ds/opt :namespace) string?
    })
 
-(def v1alpha1-subject
+(def rbac-v1alpha1-subject
   (ds/spec
-    {:name ::v1alpha1-subject
-     :spec v1alpha1-subject-data}))
+    {:name ::rbac-v1alpha1-subject
+     :spec rbac-v1alpha1-subject-data}))
 

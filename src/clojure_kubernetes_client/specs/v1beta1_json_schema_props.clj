@@ -58,6 +58,12 @@
    (ds/opt :title) string?
    (ds/opt :type) string?
    (ds/opt :uniqueItems) boolean?
+   (ds/opt :x-kubernetes-embedded-resource) boolean?
+   (ds/opt :x-kubernetes-int-or-string) boolean?
+   (ds/opt :x-kubernetes-list-map-keys) (s/coll-of string?)
+   (ds/opt :x-kubernetes-list-type) string?
+   (ds/opt :x-kubernetes-map-type) string?
+   (ds/opt :x-kubernetes-preserve-unknown-fields) boolean?
    })
 
 (def v1beta1-json-schema-props

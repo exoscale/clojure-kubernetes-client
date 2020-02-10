@@ -10,6 +10,7 @@
   {
    (ds/opt :attachRequired) boolean?
    (ds/opt :podInfoOnMount) boolean?
+   (ds/opt :volumeLifecycleModes) (s/coll-of string?)
    })
 
 (def v1beta1-csi-driver-spec

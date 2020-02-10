@@ -1,1 +1,1 @@
-export KUBERNETES_BRANCH="v1.14.1" export CLIENT_VERSION="0.1.1" export PACKAGE_NAME="clojure-kubernetes-client"
+export KUBERNETES_BRANCH="v1.17.0" export CLIENT_VERSION="0.1.1" export PACKAGE_NAME="clojure-kubernetes-client"

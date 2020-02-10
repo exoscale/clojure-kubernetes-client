@@ -3,6 +3,7 @@
             [spec-tools.data-spec :as ds]
             [clojure-kubernetes-client.specs.v1-se-linux-options :refer :all]
             [clojure-kubernetes-client.specs.v1-sysctl :refer :all]
+            [clojure-kubernetes-client.specs.v1-windows-security-context-options :refer :all]
             )
   (:import (java.io File)))
 
@@ -17,6 +18,7 @@
    (ds/opt :seLinuxOptions) v1-se-linux-options
    (ds/opt :supplementalGroups) (s/coll-of int?)
    (ds/opt :sysctls) (s/coll-of v1-sysctl)
+   (ds/opt :windowsOptions) v1-windows-security-context-options
    })
 
 (def v1-pod-security-context

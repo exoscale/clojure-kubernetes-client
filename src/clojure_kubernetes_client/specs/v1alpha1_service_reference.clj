@@ -11,6 +11,7 @@
    (ds/req :name) string?
    (ds/req :namespace) string?
    (ds/opt :path) string?
+   (ds/opt :port) int?
    })
 
 (def v1alpha1-service-reference

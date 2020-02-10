@@ -11,6 +11,7 @@
    (ds/req :name) string?
    (ds/req :namespace) string?
    (ds/opt :path) string?
+   (ds/opt :port) int?
    })
 
 (def admissionregistration-v1beta1-service-reference
