@@ -8,6 +8,7 @@
             [clojure-kubernetes-client.specs.extensions-v1beta1-host-port-range :refer :all]
             [clojure-kubernetes-client.specs.extensions-v1beta1-run-as-group-strategy-options :refer :all]
             [clojure-kubernetes-client.specs.extensions-v1beta1-run-as-user-strategy-options :refer :all]
+            [clojure-kubernetes-client.specs.extensions-v1beta1-runtime-class-strategy-options :refer :all]
             [clojure-kubernetes-client.specs.extensions-v1beta1-se-linux-strategy-options :refer :all]
             [clojure-kubernetes-client.specs.extensions-v1beta1-supplemental-groups-strategy-options :refer :all]
             )
@@ -37,6 +38,7 @@
    (ds/opt :requiredDropCapabilities) (s/coll-of string?)
    (ds/opt :runAsGroup) extensions-v1beta1-run-as-group-strategy-options
    (ds/req :runAsUser) extensions-v1beta1-run-as-user-strategy-options
+   (ds/opt :runtimeClass) extensions-v1beta1-runtime-class-strategy-options
    (ds/req :seLinux) extensions-v1beta1-se-linux-strategy-options
    (ds/req :supplementalGroups) extensions-v1beta1-supplemental-groups-strategy-options
    (ds/opt :volumes) (s/coll-of string?)

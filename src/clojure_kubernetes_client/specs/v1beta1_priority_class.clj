@@ -14,6 +14,7 @@
    (ds/opt :globalDefault) boolean?
    (ds/opt :kind) string?
    (ds/opt :metadata) v1-object-meta
+   (ds/opt :preemptionPolicy) string?
    (ds/req :value) int?
    })
 

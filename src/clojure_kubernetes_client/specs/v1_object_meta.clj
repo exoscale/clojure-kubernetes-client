@@ -1,7 +1,6 @@
 (ns clojure-kubernetes-client.specs.v1-object-meta
   (:require [clojure.spec.alpha :as s]
             [spec-tools.data-spec :as ds]
-            [clojure-kubernetes-client.specs.v1-initializers :refer :all]
             [clojure-kubernetes-client.specs.v1-managed-fields-entry :refer :all]
             [clojure-kubernetes-client.specs.v1-owner-reference :refer :all]
             )
@@ -19,7 +18,6 @@
    (ds/opt :finalizers) (s/coll-of string?)
    (ds/opt :generateName) string?
    (ds/opt :generation) int?
-   (ds/opt :initializers) v1-initializers
    (ds/opt :labels) (s/map-of string? string?)
    (ds/opt :managedFields) (s/coll-of v1-managed-fields-entry)
    (ds/opt :name) string?

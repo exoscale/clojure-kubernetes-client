@@ -13,6 +13,7 @@
    (ds/opt :configSource) v1-node-config-source
    (ds/opt :externalID) string?
    (ds/opt :podCIDR) string?
+   (ds/opt :podCIDRs) (s/coll-of string?)
    (ds/opt :providerID) string?
    (ds/opt :taints) (s/coll-of v1-taint)
    (ds/opt :unschedulable) boolean?

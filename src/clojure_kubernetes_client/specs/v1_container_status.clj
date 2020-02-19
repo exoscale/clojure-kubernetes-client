@@ -17,6 +17,7 @@
    (ds/req :name) string?
    (ds/req :ready) boolean?
    (ds/req :restartCount) int?
+   (ds/opt :started) boolean?
    (ds/opt :state) v1-container-state
    })
 

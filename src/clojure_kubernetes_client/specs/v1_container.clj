@@ -9,6 +9,7 @@
             [clojure-kubernetes-client.specs.v1-probe :refer :all]
             [clojure-kubernetes-client.specs.v1-resource-requirements :refer :all]
             [clojure-kubernetes-client.specs.v1-security-context :refer :all]
+            [clojure-kubernetes-client.specs.v1-probe :refer :all]
             [clojure-kubernetes-client.specs.v1-volume-device :refer :all]
             [clojure-kubernetes-client.specs.v1-volume-mount :refer :all]
             )
@@ -31,6 +32,7 @@
    (ds/opt :readinessProbe) v1-probe
    (ds/opt :resources) v1-resource-requirements
    (ds/opt :securityContext) v1-security-context
+   (ds/opt :startupProbe) v1-probe
    (ds/opt :stdin) boolean?
    (ds/opt :stdinOnce) boolean?
    (ds/opt :terminationMessagePath) string?

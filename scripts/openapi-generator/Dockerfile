@@ -15,15 +15,14 @@
 FROM maven:3.5-jdk-8-slim
 ARG OPENAPI_GENERATOR_COMMIT
 ARG GENERATION_XML_FILE
-#ARG OPENAPI_GENERATOR_USER_ORG=OpenAPITools
-ARG OPENAPI_GENERATOR_USER_ORG
+ARG OPENAPI_GENERATOR_USER_ORG=OpenAPITools
 
 # Install preprocessing script requirements
-RUN apt-get update && apt-get -y install git python-pip && pip install urllib3
+RUN apt-get update && apt-get -y install git python-pip && pip install urllib3==1.24.2
 
 # Install Autorest
 RUN apt-get update && apt-get -qq -y install libunwind8 libicu57 libssl1.0 liblttng-ust0 libcurl3 libuuid1 libkrb5-3 zlib1g
-RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
 RUN apt-get update && apt-get -y install \
     nodejs \
     libunwind8-dev \

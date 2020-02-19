@@ -136,19 +136,34 @@ def process_swagger(spec, client_language):
 
     inline_primitive_models(spec, preserved_primitives_for_language(client_language))
 
+    add_custom_formatting(spec, format_for_language(client_language))
+    add_custom_typing(spec, type_for_language(client_language))
+
     remove_models(spec, removed_models_for_language(client_language))
 
     return spec
 
 def preserved_primitives_for_language(client_language):
     if client_language == "java":
-        return ["intstr.IntOrString", "resource.Quantity"]
+        return ["intstr.IntOrString", "resource.Quantity", "v1.Patch"]
     elif client_language == "csharp":
         return ["intstr.IntOrString", "resource.Quantity", "v1.Patch"]
     elif client_language == "haskell-http-client":
         return ["intstr.IntOrString", "resource.Quantity"]
     else:
         return []
+
+def format_for_language(client_language):
+    if client_language == "java":
+        return {"resource.Quantity": "quantity", "v1.Patch": "patch"}
+    else:
+        return {}
+
+def type_for_language(client_language):
+    if client_language == "java":
+        return {"v1.Patch": "string"}
+    else:
+        return {}
 
 def removed_models_for_language(client_language):
     if client_language == "haskell-http-client":
@@ -298,6 +313,18 @@ def inline_primitive_models(spec, excluded_primitives):
     for k in to_remove_models:
         del spec['definitions'][k]
 
+def add_custom_formatting(spec, custom_formats):
+    for k, v in spec['definitions'].items():
+        if k not in custom_formats:
+            continue
+        v["format"] = custom_formats[k]
+
+def add_custom_typing(spec, custom_types):
+    for k, v in spec['definitions'].items():
+        if k not in custom_types:
+            continue
+        v["type"] = custom_types[k]
+
 def write_json(filename, object):
     with open(filename, 'w') as out:
         json.dump(object, out, sort_keys=False, indent=2, separators=(',', ': '), ensure_ascii=True)
@@ -312,7 +339,7 @@ def main():
     )
     argparser.add_argument(
         'kubernetes_branch',
-        help='Branch of github.com/kubernetes/kubernetes to get spec from'
+        help='Branch/tag of github.com/kubernetes/kubernetes to get spec from'
     )
     argparser.add_argument(
         'output_spec_path',
@@ -330,20 +357,29 @@ def main():
     )
     args = argparser.parse_args()
 
-    spec_url = 'https://raw.githubusercontent.com/%s/%s/' \
+
+    unprocessed_spec = args.output_spec_path + ".unprocessed"
+    in_spec = ""
+    if os.environ.get("OPENAPI_SKIP_FETCH_SPEC") or False:
+        with open(unprocessed_spec, 'r') as content:
+            in_spec = json.load(content, object_pairs_hook=OrderedDict)
+    else:
+        pool = urllib3.PoolManager()
+        spec_url = 'https://raw.githubusercontent.com/%s/%s/' \
                '%s/api/openapi-spec/swagger.json' % (args.username,
                                                      args.repository,
                                                      args.kubernetes_branch)
-
-    pool = urllib3.PoolManager(cert_reqs='CERT_NONE', assert_hostname=False)
-    with pool.request('GET', spec_url, preload_content=False) as response:
-        if response.status != 200:
-            print("Error downloading spec file %s. Reason: %s" % (spec_url, response.reason))
-            return 1
-        in_spec = json.load(response, object_pairs_hook=OrderedDict)
-        write_json(args.output_spec_path + ".unprocessed", in_spec)
-        out_spec = process_swagger(in_spec, args.client_language)
-        write_json(args.output_spec_path, out_spec)
+        with pool.request('GET', spec_url, preload_content=False) as response:
+            if response.status != 200:
+                print("Error downloading spec file %s. Reason: %s" % (spec_url, response.reason))
+                return 1
+            in_spec = json.load(response, object_pairs_hook=OrderedDict)
+    write_json(unprocessed_spec, in_spec)
+    # use version from branch/tag name if spec doesn't provide it
+    if in_spec['info']['version'] == 'unversioned':
+        in_spec['info']['version'] = args.kubernetes_branch
+    out_spec = process_swagger(in_spec, args.client_language)
+    write_json(args.output_spec_path, out_spec)
     return 0
 
 

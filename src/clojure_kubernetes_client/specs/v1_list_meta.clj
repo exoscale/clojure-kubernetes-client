@@ -9,6 +9,7 @@
 (def v1-list-meta-data
   {
    (ds/opt :continue) string?
+   (ds/opt :remainingItemCount) int?
    (ds/opt :resourceVersion) string?
    (ds/opt :selfLink) string?
    })

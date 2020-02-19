@@ -18,6 +18,7 @@
    (ds/opt :conversion) v1beta1-custom-resource-conversion
    (ds/req :group) string?
    (ds/req :names) v1beta1-custom-resource-definition-names
+   (ds/opt :preserveUnknownFields) boolean?
    (ds/req :scope) string?
    (ds/opt :subresources) v1beta1-custom-resource-subresources
    (ds/opt :validation) v1beta1-custom-resource-validation

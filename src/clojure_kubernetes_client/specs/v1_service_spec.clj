@@ -15,6 +15,7 @@
    (ds/opt :externalName) string?
    (ds/opt :externalTrafficPolicy) string?
    (ds/opt :healthCheckNodePort) int?
+   (ds/opt :ipFamily) string?
    (ds/opt :loadBalancerIP) string?
    (ds/opt :loadBalancerSourceRanges) (s/coll-of string?)
    (ds/opt :ports) (s/coll-of v1-service-port)
@@ -22,6 +23,7 @@
    (ds/opt :selector) (s/map-of string? string?)
    (ds/opt :sessionAffinity) string?
    (ds/opt :sessionAffinityConfig) v1-session-affinity-config
+   (ds/opt :topologyKeys) (s/coll-of string?)
    (ds/opt :type) string?
    })
 

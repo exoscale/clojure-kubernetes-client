@@ -1,7 +1,7 @@
 (ns clojure-kubernetes-client.specs.v1beta2-controller-revision
   (:require [clojure.spec.alpha :as s]
             [spec-tools.data-spec :as ds]
-            [clojure-kubernetes-client.specs.runtime-raw-extension :refer :all]
+            
             [clojure-kubernetes-client.specs.v1-object-meta :refer :all]
             )
   (:import (java.io File)))
@@ -11,7 +11,7 @@
 (def v1beta2-controller-revision-data
   {
    (ds/opt :apiVersion) string?
-   (ds/opt :data) runtime-raw-extension
+   (ds/opt :data) any?
    (ds/opt :kind) string?
    (ds/opt :metadata) v1-object-meta
    (ds/req :revision) int?

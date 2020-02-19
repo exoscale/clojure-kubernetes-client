@@ -10,7 +10,8 @@
 (def v1-managed-fields-entry-data
   {
    (ds/opt :apiVersion) string?
-   (ds/opt :fields) any?
+   (ds/opt :fieldsType) string?
+   (ds/opt :fieldsV1) any?
    (ds/opt :manager) string?
    (ds/opt :operation) string?
    (ds/opt :time) inst?
